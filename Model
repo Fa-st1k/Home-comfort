@@ -1,21 +1,47 @@
 import json
 from view import menu_2
 
-def admin():
-    def editing_employees():
-        with open('the_database.json', 'r') as f:
-            data = json.load(f)
 
-        employee_id = input("Enter the ID of the employee you want to edit: ")
-        if any(d["ID"] == employee_id for d in data):
-            employee = next(d for d in data if d["ID"] == employee_id)
-            print("Employee details:")
-            print(f"ID: {employee_id}")
-            print(f"FIO: {employee['FIO']}")
-            print(f"Age: {employee['age']}")
-            print(f"Weight: {employee['weight']}")
+def editing_employees():
+    with open('the_database.json', 'r') as f:
+        data = json.load(f)
 
-            while True:
+    employee_id = input("Enter the ID of the employee you want to edit: ")
+    if any(d["ID"] == employee_id for d in data):
+        employee = next(d for d in data if d["ID"] == employee_id)
+        print("Employee details:")
+        print(f"ID: {employee_id}")
+        print(f"FIO: {employee['FIO']}")
+        print(f"Age: {employee['age']}")
+        print(f"Weight: {employee['weight']}")
+        while True:
+            choice = input("What would you like to edit? (FIO / age / weight / exit): ")
+
+            if choice == "FIO":
+                new_fio = input("Enter the new FIO: ")
+                employee['FIO'] = new_fio
+                print("FIO updated successfully.")
+            elif choice == "age":
+                new_age = int(input("Enter the new age: "))
+                employee['age'] = new_age
+                print("Age updated successfully.")
+            elif choice == "weight":
+                new_weight = input("Enter the new weight: ")
+                employee['weight'] = new_weight
+                print("Weight updated successfully.")
+            elif choice == "exit":
+                break
+            else:
+                print("Invalid choice. Please try again.")
+
+        with open('the_database.json', 'w') as f:
+            json.dump(data, f)
+            print("Data saved successfully.")
+
+        while True:
+            continue_editing = input("Do you want to edit something else for this employee? (yes / no): ")
+
+            if continue_editing == "yes":
                 choice = input("What would you like to edit? (FIO / age / weight / exit): ")
 
                 if choice == "FIO":
@@ -35,93 +61,65 @@ def admin():
                 else:
                     print("Invalid choice. Please try again.")
 
-            with open('the_database.json', 'w') as f:
-                json.dump(data, f)
-                print("Data saved successfully.")
-
-            while True:
-                continue_editing = input("Do you want to edit something else for this employee? (yes / no): ")
-
-                if continue_editing == "yes":
-                    choice = input("What would you like to edit? (FIO / age / weight / exit): ")
-
-                    if choice == "FIO":
-                        new_fio = input("Enter the new FIO: ")
-                        employee['FIO'] = new_fio
-                        print("FIO updated successfully.")
-                    elif choice == "age":
-                        new_age = int(input("Enter the new age: "))
-                        employee['age'] = new_age
-                        print("Age updated successfully.")
-                    elif choice == "weight":
-                        new_weight = input("Enter the new weight: ")
-                        employee['weight'] = new_weight
-                        print("Weight updated successfully.")
-                    elif choice == "exit":
-                        break
-                    else:
-                        print("Invalid choice. Please try again.")
-
-                    with open('the_database.json', 'w') as f:
-                        json.dump(data, f)
-                        print("Data saved successfully.")
-                elif continue_editing == "no":
-                    break
-                else:
-                    print("Invalid choice. Please try again.")
-
-            while True:
-                continue_editing_employee = input("Do you want to edit another employee? (yes / no): ")
-
-                if continue_editing_employee == "yes":
-                    editing_employees()
-                    break
-                elif continue_editing_employee == "no":
-                    break
-                else:
-                    print("Invalid choice. Please try again.")
-        else:
-            print("Invalid employee ID.")
-
-
-
-    def get_all_employees():
-        with open('the_database.json', 'r') as f:
-            employees = json.load(f)
-
-        for employee in employees:
-            try:
-                print("FIO:", employee['FIO'])
-                print("Age:", employee['age'])
-                print("Weight:", employee['weight'])
-                print("ID:", employee['ID'])
-                print()
-            except KeyError:
-                print("Missing key in employee data:", employee)
-
-    def removing_employees(employee_id):
-        # Read the data from the file
-        with open('the_database.json', 'r') as file:
-            data = json.load(file)
-
-        # Find and remove the employee with the given ID
-        removed_employee = None
-        for employee in data:
-            if employee['ID'] == str(employee_id):
-                removed_employee = employee
-                data.remove(employee)
+                with open('the_database.json', 'w') as f:
+                    json.dump(data, f)
+                    print("Data saved successfully.")
+            elif continue_editing == "no":
                 break
+            else:
+                print("Invalid choice. Please try again.")
 
-        # Write the updated data back to the file
-        with open('the_database.json', 'w') as file:
-            json.dump(data, file)
+        while True:
+            continue_editing_employee = input("Do you want to edit another employee? (yes / no): ")
 
-        return removed_employee
+            if continue_editing_employee == "yes":
+                editing_employees()
+                break
+            elif continue_editing_employee == "no":
+                break
+            else:
+                print("Invalid choice. Please try again.")
+    else:
+        print("Invalid employee ID.")
 
-    def fire_employees():
-        # Clear the contents of the file
-        with open('the_database.json', 'w') as file:
-            file.write('[]')
+
+
+def get_all_employees():
+    with open('the_database.json', 'r') as f:
+        employees = json.load(f)
+
+    for employee in employees:
+        try:
+            print("FIO:", employee['FIO'])
+            print("Age:", employee['age'])
+            print("Weight:", employee['weight'])
+            print("ID:", employee['ID'])
+            print()
+        except KeyError:
+            print("Missing key in employee data:", employee)
+
+def removing_employees(employee_id):
+    # Read the data from the file
+    with open('the_database.json', 'r') as file:
+        data = json.load(file)
+
+    # Find and remove the employee with the given ID
+    removed_employee = None
+    for employee in data:
+        if employee['ID'] == str(employee_id):
+            removed_employee = employee
+            data.remove(employee)
+            break
+
+    # Write the updated data back to the file
+    with open('the_database.json', 'w') as file:
+        json.dump(data, file)
+    return removed_employee
+
+def fire_employees():
+     # Clear the contents of the file
+    with open('the_database.json', 'w') as file:
+         file.write('[]')
 
 
 def user():
