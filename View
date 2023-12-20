@@ -1,0 +1,45 @@
+def my_decorator_display_menu(display_menu):
+    def wrapper():
+        print("─── ⋆⋅☆⋅⋆ ───── ⋆⋅☆⋅⋆ ──")
+        display_menu()
+        print("─── ⋆⋅☆⋅⋆ ───── ⋆⋅☆⋅⋆ ──")
+
+    return wrapper
+
+
+@my_decorator_display_menu
+def display_menu():
+    print("1 - Add an employee")
+    print("2 - View all employees")
+    print("3 - Edit employees")
+    print("4 - Dismiss an employee")
+    print("5 - Become bankrupt and fire everyone")
+
+def display_all_employees():
+    print("\nList of employees:")
+    for i, Worker in enumerate(shoe_inventory):
+            print(f"{i+1}. {Worker['FIO']}, AGE: {Worker['age']}, Weight: {Worker['C']}")
+
+def display_success(message):
+    print(f"\nSuccessfully: {message}")
+
+def display_error(message):
+    print(f"\nMistake: {message}")
+
+
+def my_decorator_menu_2(menu_2):
+    def wrapper():
+        print("─── ⋆⋅☆⋅⋆ ───── ⋆⋅☆⋅⋆ ──")
+        menu_2()
+        print("─── ⋆⋅☆⋅⋆ ───── ⋆⋅☆⋅⋆ ──")
+
+    return wrapper
+
+
+@my_decorator_menu_2
+def menu_2():
+    print("\n 1 - Go to the menu "
+            "\n 2 - Payment"
+            "\n 3 - Basket"
+            "\n 4 - Editing the shopping cart"
+            "\n 5 - Exit")
