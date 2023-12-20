@@ -1,4 +1,4 @@
-from model import admin, user, Sending_a_job_application
+from model import editing_employees, removing_employees, get_all_employees, fire_employees, user, Sending_a_job_application
 from view import display_menu, display_all_employees, display_success, display_error
 import json
 
