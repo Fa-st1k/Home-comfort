@@ -9,7 +9,7 @@ def my_decorator_display_menu(display_menu):
 
 @my_decorator_display_menu
 def display_menu():
-    print("1 - Add an employee")
+    print("1 - Add an employee") #Добавить сотрудника
     print("2 - View all employees")
     print("3 - Edit employees")
     print("4 - Dismiss an employee")
@@ -17,7 +17,7 @@ def display_menu():
 
 def display_all_employees():
     print("\nList of employees:")
-    for i, Worker in enumerate(shoe_inventory):
+    for i, Worker in enumerate(The_database):
             print(f"{i+1}. {Worker['FIO']}, AGE: {Worker['age']}, Weight: {Worker['C']}")
 
 def display_success(message):
@@ -42,4 +42,5 @@ def menu_2():
             "\n 2 - Payment"
             "\n 3 - Basket"
             "\n 4 - Editing the shopping cart"
-            "\n 5 - Exit")
+            "\n 5 - Сalculator"
+            "\n 6 - Exit")
