@@ -141,11 +141,13 @@ def user():
         Action_selection = int(input("Enter the number of the desired action:"))
 
         def go_to_order_1(go_to_order):
-            menu_3 = ("\n 1 - Cappuccino 150 rubles"
-                      "\n 2 - American 120 rubles"
-                      "\n 3 - Espresso 80 rubles "
-                      "\n 4 - Cheesecake 100 rubles "
-                      "\n 5 - Cream soup 250 rubles")
+            menu_3 = ("\n─── ⋆⋅☆⋅⋆ ───── ⋆⋅☆⋅⋆ ──\n"
+                      "\n 1 - Cappuccino - 150 rubles"
+                      "\n 2 - American - 120 rubles"
+                      "\n 3 - Espresso - 80 rubles "
+                      "\n 4 - Cheesecake - 100 rubles "
+                      "\n 5 - Cream soup - 250 rubles"
+                      "\n─── ⋆⋅☆⋅⋆ ───── ⋆⋅☆⋅⋆ ──\n")
             print(menu_3)
             go_to_order_2 = int(input("Enter the number of the product you want to order:"))
 
@@ -177,6 +179,7 @@ def user():
                 print("Thanks for the purchase!")
 
         def cart_1(cart):
+            print("─── ⋆⋅☆⋅⋆ ───── ⋆⋅☆⋅⋆ ──")
             print('1 - ', 'Cappuccino:', Basket.count('Cappuccino'), " - ", Basket.count('Cappuccino') * 150)
             print('2 - ', 'American:', Basket.count('American'), " - ", Basket.count('American') * 120)
             print('3 - ', 'Espresso:', Basket.count('Espresso'), " - ", Basket.count('Espresso') * 80)
@@ -184,6 +187,7 @@ def user():
             print('5 - ', 'Cream soup:', Basket.count('Cream soup'), " - ", Basket.count('Cream soup') * 250)
 
             total_price_1()
+            print("─── ⋆⋅☆⋅⋆ ───── ⋆⋅☆⋅⋆ ──")
 
         def change_basket():
 
@@ -211,6 +215,7 @@ def user():
                     break
                 else:
                     change_basket()
+
 
         if Action_selection == 1:
             go_to_order_1("go_to_order")
