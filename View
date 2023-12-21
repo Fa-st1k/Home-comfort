@@ -10,10 +10,10 @@ def my_decorator_display_menu(display_menu):
 @my_decorator_display_menu
 def display_menu():
     print("1 - Add an employee") #Добавить сотрудника
-    print("2 - View all employees")
-    print("3 - Edit employees")
-    print("4 - Dismiss an employee")
-    print("5 - Become bankrupt and fire everyone")
+    print("2 - View all employees") #Посмотреть всех сотрудников
+    print("3 - Edit employees") #Редактирование сотрудников
+    print("4 - Dismiss an employee") #Увольнение сотрудника
+    print("5 - Become bankrupt and fire everyone") #Стать банкротом и уволить всех
 
 def display_all_employees():
     print("\nList of employees:")
