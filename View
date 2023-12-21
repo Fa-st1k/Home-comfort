@@ -15,10 +15,6 @@ def display_menu():
     print("4 - Dismiss an employee") #Увольнение сотрудника
     print("5 - Become bankrupt and fire everyone") #Стать банкротом и уволить всех
 
-def display_all_employees():
-    print("\nList of employees:")
-    for i, Worker in enumerate(The_database):
-            print(f"{i+1}. {Worker['FIO']}, AGE: {Worker['age']}, Weight: {Worker['C']}")
 
 def display_success(message):
     print(f"\nSuccessfully: {message}")
