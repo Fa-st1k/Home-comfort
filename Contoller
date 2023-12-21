@@ -53,7 +53,8 @@ if Log_in_to_the_system == "1":
     if Password == num:
         main()
     else:
-        print("You entered the password incorrectly!")
+        print("\n You entered the password incorrectly!"
+                "\n You're not an admin, goodbye!")
 elif Log_in_to_the_system == "2":
     user()
 elif Log_in_to_the_system == "3":
