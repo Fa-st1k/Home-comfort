@@ -2,7 +2,7 @@ import json
 from view import menu_2
 
 
-def editing_employees():
+def editing_employees_():
     with open('the_database.json', 'r') as f:
         data = json.load(f)
 
@@ -116,10 +116,32 @@ def removing_employees(employee_id):
         json.dump(data, file)
     return removed_employee
 
+
+
+def See_everyone_who_wants_to_get_a_job():
+    print()
+
+
+
 def fire_employees():
      # Clear the contents of the file
     with open('the_database.json', 'w') as file:
          file.write('[]')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def user():
@@ -228,6 +250,23 @@ def user():
         elif Action_selection == 5:
             print("Goodbye!")
             break
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def Sending_a_job_application():
     list_applications = []
