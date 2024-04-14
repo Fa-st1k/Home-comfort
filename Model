@@ -2,7 +2,7 @@ import json
 from view import menu_2
 
 
-def editing_employees_():
+def editing_employees():
     with open('the_database.json', 'r') as f:
         data = json.load(f)
 
